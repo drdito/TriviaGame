@@ -1,0 +1,28 @@
+body {
+  background-image: url("../images/notebook.png");
+
+}
+
+h1 {
+  font-family: 'Sedgwick Ave Display', cursive !important;
+}
+
+
+
+#option1:hover { 
+    background-color: #9299a3;
+    cursor: pointer;
+}
+#option2:hover { 
+    background-color: #9299a3;
+    cursor: pointer;
+}
+#option3:hover { 
+    background-color: #9299a3;
+    cursor: pointer;
+}
+#option4:hover { 
+    background-color: #9299a3;
+    cursor: pointer;
+
+}
