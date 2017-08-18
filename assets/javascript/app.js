@@ -1,22 +1,24 @@
-var questions = ["Which Major League Baseball team holds the record for most World Series wins with 27 titles?", "Which quarterback holds the record for the most touchdown passes in a season with 55?"]
-var possibleAnswers = [["A.The New York Yankees", "B.The St. Louis Cardinals", "C.The Boston Red Sox", "D.The Tampa Bay Rays"], ["A.Tom Brady", "B.Aaron Rogers", "C.Peyton Manning", "D.Bart Starr"]]
-var correctAnswers = ["A.The New York Yankees", "C.Peyton Manning"]
-var count = 20;
-var count2 = 10;
-var clock;
-var clock2;
-var right = "That is correct!!";
-var wrong = "I'm sorry, you are wrong";
+var correctAnswers = ["The New York Yankees", "Peyton Manning", "Wayne Gretzky", "14", "Muggsy Bogues", "Roger Federer", "Deion Sanders", "10 Feet", "Badmiton", "The University of North Carolina Tar Heels"]
+var count = 45;
+var q1Answer;
+var q2Answer;
+var q3Answer;
+var q4Answer;
+var q5Answer;
+var q6Answer;
+var q7Answer;
+var q8Answer;
+var q9Answer;
+var q10Answer;
 var correct = 0;
-var incorrect = 0;
-var answered = false;
-var questionCount = 1;
+var incorrect = 0; 
 
 
 //Repeatable timer function
 function timer () {
-  clock = setInterval(twentySeconds, 1000);
-  function twentySeconds () {
+  count = 45;
+  clock = setInterval(fourtyFiveSeconds, 1000);
+  function fourtyFiveSeconds () {
     if (count === 0) {
       clearInterval(clock);
     }
@@ -29,61 +31,54 @@ function timer () {
 
 
 
-//Starts the game
+
+//Game starts here
+//-----------------------------------------------------------
 $(".btn-danger").on("click", function() {
-  $(this).prop("disabled",true);
   timer();
-  $("#question").html("<h3>" + questions[0] + "</h3>");
-  $("#option1").html("<h3>" + possibleAnswers[0][0] + "</h3>");
-  $("#option2").html("<h3>" + possibleAnswers[0][1] + "</h3>");
-  $("#option3").html("<h3>" + possibleAnswers[0][2] + "</h3>");
-  $("#option4").html("<h3>" + possibleAnswers[0][3] + "</h3>");
+  $("#audiotag1")[0].play();
+  $(".jumbotron2").css("visibility", "visible");
+  $(".btn-danger").prop("disabled",true);
 });
 
-//Record answer and display correct answer
-$("#option1").on("click", function() {
-  clearInterval(clock);
-  $(".jumbotron2").html("<h3>" + right + "</h3>");
-  $(".jumbotron2").append("<br>");
-  $(".jumbotron2").append("<img src='assets/images/yankees.jpg'/>");
-  correct++;
-  answered = true;
-  questionCount++;
+$(".btn-success").on("click", function() {
+  q1Answer = $("input[name='q1']:checked").val();
+    if (q1Answer === correctAnswers[0]) {
+      correct++;
+    }
+    else {
+      incorrect++;
+    } 
+  q2Answer = $("input[name='q2']:checked").val();
+     if (q2Answer === correctAnswers[1]) {
+      correct++;
+    }
+    else {
+      incorrect++;
+    } 
+  q3Answer = $("input[name='q3']:checked").val();
+  q4Answer = $("input[name='q4']:checked").val();
+  q5Answer = $("input[name='q5']:checked").val();
+  q6Answer = $("input[name='q6']:checked").val();
+  q7Answer = $("input[name='q7']:checked").val();
+  q8Answer = $("input[name='q8']:checked").val();
+  q9Answer = $("input[name='q9']:checked").val();
+  q10Answer = $("input[name='q10']:checked").val();
+  
+  console.log(q2Answer);
+  console.log(q8Answer);
+  console.log(correct);
+
+
   
 });
-$("#option2").on("click", function() {
-  clearInterval(clock);
-  $(".jumbotron2").html("<h3>" + wrong + "</h3>");
-  $(".jumbotron2").append("<br>");
-  $(".jumbotron2").append("<h3>The correct answer is the New York Yankees");
-  $(".jumbotron2").append("<img src='assets/images/yankees.jpg'/>");
-  incorrect++;
-  answered = true;
-  questionCount++;
-  
-});
-$("#option3").on("click", function() {
-  clearInterval(clock);
-  $(".jumbotron2").html("<h3>" + wrong + "</h3>");
-  $(".jumbotron2").append("<br>");
-  $(".jumbotron2").append("<h3>The correct answer is the New York Yankees");
-  $(".jumbotron2").append("<img src='assets/images/yankees.jpg'/>");
-  incorrect++;
-  answered = true;
-  questionCount++;
-  
-});
-$("#option4").on("click", function() {
-  clearInterval(clock);
-  $(".jumbotron2").html("<h3>" + wrong + "</h3>");
-  $(".jumbotron2").append("<br>");
-  $(".jumbotron2").append("<h3>The correct answer is the New York Yankees");
-  $(".jumbotron2").append("<img src='assets/images/yankees.jpg'/>");
-  incorrect++;
-  answered = true;
-  questionCount++;
-  
-});
+
+
+
+
+
+
+
 
 
 
